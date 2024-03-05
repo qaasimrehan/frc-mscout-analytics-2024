@@ -4,13 +4,13 @@ var addCharts = (element, hasMultiple = false) => {
     element.insertAdjacentHTML("beforeend",
         "<div class=\"eight wide column\">" +
         "<div class=\"ui segment\">" +
-        "<h3 class=\"ui right aligned dividing header\" style=\"margin-top: 0px;\">Cone vs Cube by Time</h3>" +
+        "<h3 class=\"ui right aligned dividing header\" style=\"margin-top: 0px;\">Notes Scored by Time</h3>" +
         "<canvas id=\"cvht\"></canvas>" +
         "</div>" +
         "</div>" +
         "<div class=\"eight wide column\">" +
         "<div class=\"ui segment\">" +
-        "<h3 class=\"ui right aligned dividing header\" style=\"margin-top: 0px;\">Cone vs Cube by Attempts</h3>" +
+        "<h3 class=\"ui right aligned dividing header\" style=\"margin-top: 0px;\">Notes Scored by Attempts</h3>" +
         "<canvas id=\"cvha\"></canvas>" +
         "</div>" +
         "</div>" +
@@ -54,7 +54,7 @@ var addCharts = (element, hasMultiple = false) => {
         element.insertAdjacentHTML("beforeend",
             "<div class=\"sixteen wide column\">" +
             "<div class=\"ui segment\">" +
-            "<h3 class=\"ui right aligned dividing header\" style=\"margin-top: 0px;\">Scoring over Time (Cone vs Cube)</h3>" +
+            "<h3 class=\"ui right aligned dividing header\" style=\"margin-top: 0px;\">Scored over Time (Notes)</h3>" +
             "<canvas id=\"sot\"></canvas>" +
             "</div>" +
             "</div>" +
@@ -83,9 +83,9 @@ var charts = (docs) => {
     var chartData = {};
     chart = {};
     chartData.cvht = {
-        labels: ["Failing at Scoring Cone", "Scoring Cone", "Picking up Cone", "Failing at Scoring Cube", "Scoring Cube", "Picking up Cube"],
+        labels: ["Failing at Scoring Note", "Scoring Note", "Picking up Note", "Failing at Scoring Cube", "Scoring Cube", "Picking up Cube"],
         datasets: [{
-            label: "Cone vs Cube by Time",
+            label: "Notes Scored by Time",
             data: [
                 avgSums(docs, "times", "FC_CS") +
                 avgSums(docs, "times", "FC_R1") +
@@ -147,9 +147,9 @@ var charts = (docs) => {
     });
     var ctx = document.getElementById('cvha').getContext('2d');
     chartData.cvha = {
-        labels: ["Failing at Scoring Cone", "Scoring Cone", "Failing at Scoring Cube", "Scoring Cube"],
+        labels: ["Failing at Scoring Note", "Scoring Note", "Failing at Scoring Cube", "Scoring Cube"],
         datasets: [{
-            label: "Cone vs Cube by Attempts",
+            label: "Notes Scored by Attempts",
             data: [
                 avgSums(docs, "counts", "FC_CS") +
                 avgSums(docs, "counts", "FC_R1") +
@@ -429,7 +429,7 @@ var charts = (docs) => {
     var ctx = document.getElementById('svdt').getContext('2d');
     chartData.svdt = {
         labels: [
-          "Failing at Scoring Cone", "Scoring Cone", "Picking up Cone", "Failing at Scoring Cube", "Scoring Cube", "Picking up Cube", "Defense", "Ramp", "Nothing"
+          "Failing at Scoring Note", "Scoring Note", "Picking up Note", "Failing at Scoring Cube", "Scoring Cube", "Picking up Cube", "Defense", "Ramp", "Nothing"
         ],
         datasets: [{
             label: "Scoring Types by Time",
@@ -501,7 +501,7 @@ var charts = (docs) => {
     var ctx = document.getElementById('svds').getContext('2d');
     chartData.svds = {
         labels: [
-             "Scoring Cone", "Scoring Cube", "Ramp"
+             "Scoring Note", "Scoring Cube", "Ramp"
         ],
         datasets: [{
             label: "Scoring Types by Score",
@@ -563,7 +563,7 @@ var charts = (docs) => {
                     fill: false
                 },*/
                 {
-                    label: "Cone",
+                    label: "Note",
                     data: arrsDate(docs, "scoring", ["C_CS", "C_R1", "C_R2", "C_R3"]),
                     borderColor: "#ff6600",
                     fill: false
