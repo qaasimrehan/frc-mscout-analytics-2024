@@ -83,7 +83,7 @@ var charts = (docs) => {
     var chartData = {};
     chart = {};
     chartData.cvht = {
-        labels: ["Failing at Scoring Note", "Scoring Note", "Picking up Note", "Failing at Scoring Cube", "Scoring Cube", "Picking up Cube"],
+        labels: ["Failing at Scoring Note", "Scoring Note", "Picking up Note"],
         datasets: [{
             label: "Notes Scored by Time",
             data: [
@@ -147,7 +147,7 @@ var charts = (docs) => {
     });
     var ctx = document.getElementById('cvha').getContext('2d');
     chartData.cvha = {
-        labels: ["Failing at Scoring Note", "Scoring Note", "Failing at Scoring Cube", "Scoring Cube"],
+        labels: ["Failing at Scoring Note", "Scoring Note on AMP",  "Scoring Note on SPEAKER",  "Scoring Note on TRAP", "Failing at Scoring Cube", "Scoring Cube"],
         datasets: [{
             label: "Notes Scored by Attempts",
             data: [
@@ -255,9 +255,9 @@ var charts = (docs) => {
     chartData.csvrt = {
         labels: [
 //            "Failing at scoring on Cone Ship", "Scoring on Cone Ship", "Trying to score on Cone Ship",
-            "Failing at scoring on Grid Level 1", "Scoring on Grid Level 1", "Trying to score on Grid Level 1",
-            "Failing at scoring on Grid Level 2", "Scoring on Grid Level 2", "Trying to score on Grid Level 2",
-            "Failing at scoring on Grid Level 3", "Scoring on Grid Level 3", "Trying to score on Grid Level 3"
+            "Failing at scoring on AMP", "Scoring on AMP", "Trying to score on AMP",
+            "Failing at scoring on SPEAKER", "Scoring on SPEAKER", "Trying to score on SPEAKER",
+            "Failing at scoring on TRAP", "Scoring on TRAP", "Trying to score on TRAP"
         ],
         datasets: [{
             label: "Grid by Time",
@@ -317,9 +317,9 @@ var charts = (docs) => {
     chartData.csvra = {
         labels: [
         //    "Failing at scoring on Cone Ship", "Scoring on Cone Ship",
-            "Failing at scoring on Grid Level 1", "Scoring on Grid Level 1",
-            "Failing at scoring on Grid Level 2", "Scoring on Grid Level 2",
-            "Failing at scoring on Grid Level 3", "Scoring on Grid Level 3"
+            "Failing at scoring on AMP", "scoring on AMP",
+            "Failing at scoring on SPEAKER", "scoring on SPEAKER",
+            "Failing at scoring on TRAP", "scoring on TRAP"
         ],
         datasets: [{
             label: "Grid by Attempts",
@@ -375,9 +375,9 @@ var charts = (docs) => {
     chartData.csvrs = {
         labels: [
           //  "Scoring on Cone Ship",
-            "Scoring on Grid Level 1",
-            "Scoring on Grid Level 2",
-            "Scoring on Grid Level 3"
+            "scoring on AMP",
+            "scoring on SPEAKER",
+            "scoring on TRAP"
         ],
         datasets: [{
             label: "Grid by Score",
@@ -429,10 +429,10 @@ var charts = (docs) => {
     var ctx = document.getElementById('svdt').getContext('2d');
     chartData.svdt = {
         labels: [
-          "Failing at Scoring Note", "Scoring Note", "Picking up Note", "Failing at Scoring Cube", "Scoring Cube", "Picking up Cube", "Defense", "Ramp", "Nothing"
+          "Failing at Scoring Note", "Scoring Note AMP","Scoring Note SPEAKER","Scoring Note TRAP", "Picking up Note", "Defense", "Chain", "Nothing"
         ],
         datasets: [{
-            label: "Scoring Types by Time",
+            label: " Time",
             data: [
                 avgSums(docs, "times", "L"),
                 avgSums(docs, "times", "FC_CS") +
@@ -501,7 +501,7 @@ var charts = (docs) => {
     var ctx = document.getElementById('svds').getContext('2d');
     chartData.svds = {
         labels: [
-             "Scoring Note", "Scoring Cube", "Ramp"
+             "Scoring Note on AMP", "Scoring Note on SPEAKER", "Scoring Note on Trap, Climbing Chain"
         ],
         datasets: [{
             label: "Scoring Types by Score",
@@ -575,7 +575,7 @@ var charts = (docs) => {
                     fill: false
                 },
                 {
-                    label: "Ramp", // Climb
+                    label: "Chain", // Climb
                     data: arrsDate(docs, "scoring", ["C"]),
                     borderColor: "#9966ff",
                     fill: false
